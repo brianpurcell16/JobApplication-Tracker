@@ -2,6 +2,7 @@ package com.jobtracker.service;
 
 
 import com.jobtracker.dto.ApplicationRequest;
+import com.jobtracker.model.ApplicationStatus;
 import com.jobtracker.model.*;
 import com.jobtracker.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ public class ApplicationService {
     private final ApplicationRepository applicationRepository;
     private final UserRepository userRepository;
 
+
     public List<Application> getAllApplications(Long UserId) {
         return applicationRepository.findByUserIdOrderByIdDesc(UserId);
     }
@@ -28,7 +30,7 @@ public class ApplicationService {
         User user = userRepository.getReferenceById(UserId);
         Application application = Application.builder()
                 .user(user)
-                .company(request.getComapny())
+                .company(request.getCompany())
                 .role(request.getRole())
                 .location(request.getLocation())
                 .jobUrl(request.getJobUrl())

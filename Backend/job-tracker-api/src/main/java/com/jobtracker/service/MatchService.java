@@ -36,7 +36,7 @@ public class MatchService {
     @Value("${anthropic.api.model}")
     private String model;
 
-    public MatchResultReponse runMatch(Long userId, Long applicationId){
+    public MatchResultResponse runMatch(Long userId, Long applicationId){
         Application application = applicationRepository.findById(applicationId).orElseThrow(() -> new IllegalStateException("No application found with id: " + applicationId));
         if(!application.getUser().getId().equals(userId)){
             throw new SecurityException("You are not allowed to run this application as you do not own it");
