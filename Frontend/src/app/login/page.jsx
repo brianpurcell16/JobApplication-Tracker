@@ -6,7 +6,7 @@ export default function LoginPage() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h1>📋 Job Tracker</h1>
+        <h1> Job Tracker</h1>
         <h2>Sign in</h2>
         <LoginForm />
       </div>
